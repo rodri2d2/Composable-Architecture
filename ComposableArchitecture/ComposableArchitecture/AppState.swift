@@ -17,4 +17,5 @@ import SwiftUI
 /// **AppState** keeps a "copy" for all app current state
 class AppState: ObservableObject {
     @Published var count = 0
+    @Published var favoritePrimes: [Int] = []
 }
