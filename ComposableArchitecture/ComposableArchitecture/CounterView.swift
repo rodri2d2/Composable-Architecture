@@ -40,6 +40,9 @@ struct CounterView: View {
     /// Think more like a GLOBAL object
     @ObservedObject var state: AppState
     
+    
+    // To handle Modal when is prime is tap
+    @State private var isPrimeModalShown: Bool = false
 
     
     var body: some View {
@@ -63,7 +66,9 @@ struct CounterView: View {
             }
             
             //
-            Button {} label: {
+            Button {
+                isPrimeModalShown = true
+            } label: {
                 Text("Is this prime?")
             }
             
@@ -76,6 +81,10 @@ struct CounterView: View {
         }
         .font(.title)
         .navigationBarTitle("Counter Demo")
+        .sheet(isPresented: $isPrimeModalShown) {
+            PrimeModal(state: self.state)
+                
+        }
     }
 }
 
