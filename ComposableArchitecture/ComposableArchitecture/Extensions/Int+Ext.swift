@@ -23,4 +23,16 @@ extension Int {
         formatter.numberStyle = .ordinal
         return formatter.string(for: self) ?? ""
     }
+    
+    
+    /// Checks if a number is Prime or not
+    /// - Returns: Bool
+    func isPrime() -> Bool {
+        if self <= 1 { return false }
+        if self <= 3 { return true }
+        for number in 2...Int(sqrt(Float(self))) {
+            if self % number == 0 { return false}
+        }
+        return true
+    }
 }
